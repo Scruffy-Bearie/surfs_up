@@ -1,1 +1,23 @@
-# surfs_up
+
+# Analysis of Daily Temperature and Precipitation Measurements to Ascertain Business Venture Feasibility
+## Overview
+Examination of the information stored in databases can provide valuable insights when considering investments and business ventures.  One drawback of many conventional databases is that internet access is required to access said databases and run queries.  As such, some databases are created, stored and accessed using SQLite, a protocol which allows a database to be created locally allowing for easy testing and prototyping using SQLAlchemy.  The client for this study, a potential investor in a surfboard rental and ice cream shop, has asked for analysis of weather data stored in an SQLite database.  The purpose of this study is to use SQLAlchemy and associated modules to conduct analysis of the weather data so as to help the client determine whether the surfboard rental and ice cream shop represents a sound investment opportunity.
+
+## Results
+Using sqlalchemy automap_base, Session and create_engine combined with “extract”, it was possible to filter the measurement table to retrieve all temperature measurements for the months of June and December.  Once the measurements had been retrieved, it was possible to incorporate the data into a pandas DataFrame and generate the summary statistics using the “describe” command (See Figure 1).
+![](https://github.com/Scruffy-Bearie/surfs_up/blob/main/IMAGES/Figure1.png)
+
+The summary statistics acquired evidenced the following key differences in the temperature observations between June and December:
+
+-	The mean temperature for June was found to be 74.9⁰F and for December the mean temperature was found to be 71.0⁰F meaning that the difference in mean temperature between June and December was (approximately) 4⁰F.
+-	The maximum temperature recorded in June was 85.0⁰F and the maximum temperature recorded in December was 83.0⁰F meaning there was only a 2⁰F difference in maximum temperature between the months.
+-	The minimum temperature recorded in June was 64.0⁰F and the minimum temperature recorded in December was 56.0⁰F meaning that the difference in minimum temperature between June and December was 8⁰F. 
+
+## Analysis
+Given that the Hawaiian islands lay North of the equator, temperature observations from the months of June and December should give a reasonable approximation of the maximum and minimum temperatures likely to be experienced within a calendar year.  The results acquired demonstrated that the historic mean temperatures for both months – 74.9⁰F for June and 71.0⁰F for December – are within the range that many would consider comfortable for outdoor/water-based activities and the consumption of ice cream.  That said, the lower minimum temperature for December - 56⁰F as compared to 64⁰F for June – taken in conjunction with the slightly larger standard deviation  - 3.75⁰F for December observations as compared to 3.26⁰F for June observations – suggests that although the means for the months may be comparable, there is a high probability of any given day in December being colder than might be ideal for the proposed business venture. 
+Given the lack of absolute certainty provided by the results presented thus far, and the importance of sunshine for the consumption of both waves and ice cream, it seemed prudent to conduct further analysis so as to compare the historic values for rainfall in the months of June and December (See Figure 2).
+![]( https://github.com/Scruffy-Bearie/surfs_up/blob/main/IMAGES/Figure2.png)
+
+The results acquired demonstrate that the historic daily mean for rainfall in December is approximately 1.5 times greater than the historic daily mean for June (2.2 mm as compared to 1.4 mm).  Taken in conjunction with the difference in standard deviations for mean daily rainfall – 0.34 mm for June and 0.54 mm for December – the higher daily mean for December suggests that it is not necessarily going to rain every day but when it does rain, there’s likely to be a fair amount of it.  When combined with the data relating to historic daily mean temperature and corresponding analysis, the historic daily mean rainfall data suggests a strong likelihood of many days in the month of December when it will be too cold and/or rainy for people to enjoy either surfing or ice cream.
+
+Wherein the analysis presented here is far from “completely” conclusive, it has suggested the surfboard rental and ice cream shop might not be the best “year round” business venture and that further analysis incorporating tourism and ocean temperature data may be useful before making a formal funding commitment.
